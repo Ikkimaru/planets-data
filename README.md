@@ -1,27 +1,21 @@
-# PlanetsData
+# Planet Details Viewer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.8.
+This Angular application provides a detailed view of planets in our solar system, sourced from both a public API and a local file.
+The project includes an interactive UI that displays information about each planet, such as its mass, radius, eccentricity, and more,
+along with related details like its moons.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **API Integration**: Fetches planet data from a public API to display basic and detailed planetary information.
+- **Local File Support**: Optionally loads planet data from a local file, allowing for offline use or custom data.
+- **Planet Details**: Displays key attributes of each planet including its type, mass, volume, gravity, moons, and other orbital properties.
+- **Moons Navigation**: Each planet's moons are displayed as clickable links, providing additional details about their characteristics.
+- **Data Filtering**: Only planets are displayed from the API or local data, excluding other celestial bodies.
+- **Responsive Design**: The app is fully responsive and adapts to different screen sizes.
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Angular**: A modern front-end framework used to build this application.
+- **RxJS**: For handling asynchronous operations like HTTP requests.
+- **CSS**: For styling and ensuring a smooth user interface.
+- **TypeScript**: To ensure type safety and maintainability in the codebase.
