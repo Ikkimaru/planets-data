@@ -1,0 +1,72 @@
+<div class="planet-stats">
+  <h1>Planets and Their Details</h1>
+  <div *ngFor="let planet of planetsWithDetails" class="planet-card">
+    <h2>{{ planet.englishName }} ({{ planet.name }})</h2>
+    <p *ngIf="planet.moons?.length > 0">
+      <strong>Moons:</strong>
+      <span *ngFor="let moon of planet.moons; let i = index">
+        <a [routerLink]="['/moon', moon.moon]" class="moon-link" title="Click to view details about {{ moon.moon }}">
+          {{ moon.moon }}
+        </a>
+        <span *ngIf="i < planet.moons.length - 1">, </span>
+      </span>
+    </p>
+    <p *ngIf="!planet.moons?.length"><strong>Moons:</strong> None</p>
+    <ul>
+      <li title="The semi-major axis is the average distance between the planet and the sun.">
+        <strong>Semi-Major Axis:</strong> {{ planet.semimajorAxis | number }} km
+      </li>
+      <li title="Perihelion is the closest point of the planet to the sun.">
+        <strong>Perihelion:</strong> {{ planet.perihelion | number }} km
+      </li>
+      <li title="Aphelion is the farthest point of the planet from the sun.">
+        <strong>Aphelion:</strong> {{ planet.aphelion | number }} km
+      </li>
+      <li title="Eccentricity describes how much the orbit deviates from being circular.">
+        <strong>Eccentricity:</strong> {{ planet.eccentricity }}
+      </li>
+      <li title="Inclination measures the tilt of the planet's orbit relative to the plane of the solar system.">
+        <strong>Inclination:</strong> {{ planet.inclination }}°
+      </li>
+      <li title="Mass is the amount of matter in the planet, measured in kilograms.">
+        <strong>Mass:</strong> {{ planet.mass.massValue }} × 10^{{ planet.mass.massExponent }} kg
+      </li>
+      <li title="Volume is the total three-dimensional space the planet occupies.">
+        <strong>Volume:</strong> {{ planet.vol.volValue }} × 10^{{ planet.vol.volExponent }} km³
+      </li>
+      <li title="Density is the mass per unit volume of the planet.">
+        <strong>Density:</strong> {{ planet.density }} g/cm³
+      </li>
+      <li title="Gravity is the acceleration due to the planet's gravitational field.">
+        <strong>Gravity:</strong> {{ planet.gravity }} m/s²
+      </li>
+      <li title="Escape velocity is the speed needed to break free from the planet's gravity.">
+        <strong>Escape Velocity:</strong> {{ planet.escape | number }} m/s
+      </li>
+      <li title="Mean radius is the average radius of the planet.">
+        <strong>Mean Radius:</strong> {{ planet.meanRadius | number }} km
+      </li>
+      <li title="Equatorial radius is the radius measured at the planet's equator.">
+        <strong>Equatorial Radius:</strong> {{ planet.equaRadius | number }} km
+      </li>
+      <li title="Polar radius is the radius measured from pole to pole.">
+        <strong>Polar Radius:</strong> {{ planet.polarRadius | number }} km
+      </li>
+      <li title="Flattening is a measure of the planet's oblate spheroid shape.">
+        <strong>Flattening:</strong> {{ planet.flattening }}
+      </li>
+      <li title="Sideral orbit is the time taken by the planet to complete one full revolution around the sun.">
+        <strong>Sideral Orbit:</strong> {{ planet.sideralOrbit }} days
+      </li>
+      <li title="Sideral rotation is the time taken for the planet to rotate once on its axis.">
+        <strong>Sideral Rotation:</strong> {{ planet.sideralRotation }} hours
+      </li>
+      <li title="Axial tilt is the angle between the planet's rotational axis and its orbital plane.">
+        <strong>Axial Tilt:</strong> {{ planet.axialTilt }}°
+      </li>
+      <li title="Average temperature is the mean temperature of the planet's surface.">
+        <strong>Average Temperature:</strong> {{ planet.avgTemp }} K
+      </li>
+    </ul>
+  </div>
+</div>

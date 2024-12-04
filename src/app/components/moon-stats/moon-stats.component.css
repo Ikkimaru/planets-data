@@ -1,0 +1,79 @@
+.moon-stats-container {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.moon-stats-container h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.moon-stats-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.moon-stats-container li {
+  font-size: 1rem;
+  margin: 8px 0;
+  color: #34495e;
+}
+
+.moon-stats-container li strong {
+  color: #2c3e50;
+}
+
+.moon-stats-container .moon-detail {
+  background-color: #ecf0f1;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+.moon-stats-container .moon-detail span {
+  color: #2980b9;
+  font-weight: bold;
+}
+
+.moon-stats-container .discovery-info {
+  margin-top: 20px;
+  font-style: italic;
+  color: #7f8c8d;
+}
+
+.moon-stats-container .discovery-info span {
+  font-weight: bold;
+}
+
+.moon-detail {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  cursor: default;
+}
+
+.field-name {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.moon-detail i {
+  margin-left: 5px;
+  font-size: 1.2em;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.moon-detail i:hover {
+  color: #0056b3;
+}
+

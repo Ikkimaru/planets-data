@@ -1,0 +1,82 @@
+<div *ngIf="moonDetails" class="moon-stats-container">
+  <h2>{{ moonDetails.englishName }} ({{ moonDetails.name }})</h2>
+
+  <ul>
+    <li class="moon-detail" *ngIf="moonDetails.semimajorAxis > 0">
+      <span class="field-name">Semimajor Axis: <i class="fa fa-info-circle"
+                                                  title="The semimajor axis is the average distance between the moon and its primary planet."></i></span>
+      {{ moonDetails.semimajorAxis }} km
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.perihelion > 0">
+      <span class="field-name">Perihelion: <i class="fa fa-info-circle"
+                                              title="Perihelion is the point in the moon's orbit closest to the planet."></i></span>
+      {{ moonDetails.perihelion }} km
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.aphelion > 0">
+      <span class="field-name">Aphelion: <i class="fa fa-info-circle"
+                                            title="Aphelion is the point in the moon's orbit farthest from the planet."></i></span>
+      {{ moonDetails.aphelion }} km
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.eccentricity > 0">
+      <span class="field-name">Eccentricity: <i class="fa fa-info-circle"
+                                                title="Eccentricity measures how much the orbit deviates from a perfect circle."></i></span>
+      {{ moonDetails.eccentricity }}
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.inclination > 0">
+      <span class="field-name">Inclination: <i class="fa fa-info-circle"
+                                               title="Inclination is the tilt of the moon's orbit relative to the planet's equator."></i></span>
+      {{ moonDetails.inclination }}°
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.density > 0">
+      <span class="field-name">Density: <i class="fa fa-info-circle"
+                                           title="Density is the mass per unit volume of the moon, measured in grams per cubic centimeter."></i></span>
+      {{ moonDetails.density }} g/cm³
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.gravity > 0">
+      <span class="field-name">Gravity: <i class="fa fa-info-circle"
+                                           title="Gravity is the acceleration experienced at the surface of the moon due to its mass."></i></span>
+      {{ moonDetails.gravity }} m/s²
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.escape > 0">
+      <span class="field-name">Escape Velocity: <i class="fa fa-info-circle"
+                                                   title="Escape velocity is the speed needed to break free from the moon's gravity."></i></span>
+      {{ moonDetails.escape }} m/s
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.meanRadius > 0">
+      <span class="field-name">Mean Radius: <i class="fa fa-info-circle"
+                                               title="Mean radius is the average radius of the moon."></i></span>
+      {{ moonDetails.meanRadius }} km
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.equaRadius > 0">
+      <span class="field-name">Equatorial Radius: <i class="fa fa-info-circle"
+                                                     title="Equatorial radius is the radius measured at the moon's equator."></i></span>
+      {{ moonDetails.equaRadius }} km
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.polarRadius > 0">
+      <span class="field-name">Polar Radius: <i class="fa fa-info-circle"
+                                                title="Polar radius is the radius measured from pole to pole."></i></span>
+      {{ moonDetails.polarRadius }} km
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.dimension">
+      <span class="field-name">Dimension: <i class="fa fa-info-circle"
+                                             title="The moon's physical dimensions (length × width × height)."></i></span>
+      {{ moonDetails.dimension }}
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.sideralOrbit > 0">
+      <span class="field-name">Sideral Orbit: <i class="fa fa-info-circle"
+                                                 title="Sideral orbit is the time it takes for the moon to complete one full orbit around its planet."></i></span>
+      {{ moonDetails.sideralOrbit }} days
+    </li>
+    <li class="moon-detail" *ngIf="moonDetails.sideralRotation > 0">
+      <span class="field-name">Sideral Rotation: <i class="fa fa-info-circle"
+                                                    title="Sideral rotation is the time the moon takes to complete one rotation around its axis."></i></span>
+      {{ moonDetails.sideralRotation }} days
+    </li>
+  </ul>
+
+  <div class="discovery-info">
+    <p *ngIf="moonDetails.discoveredBy"><span>Discovered By:</span> {{ moonDetails.discoveredBy }}</p>
+    <p *ngIf="moonDetails.discoveryDate"><span>Discovery Date:</span> {{ moonDetails.discoveryDate }}</p>
+    <p *ngIf="moonDetails.alternativeName"><span>Alternative Name:</span> {{ moonDetails.alternativeName }}</p>
+  </div>
+</div>

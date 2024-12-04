@@ -1,18 +1,40 @@
 import { Injectable } from '@angular/core';
-import {BodiesResponse} from '../models/celestialBody-model';
+import {BodiesResponse, CelestialBody} from '../models/celestialBody-model';
 import {HttpClient} from '@angular/common/http';
-import { Observable} from 'rxjs';
+import {filter, map, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanetDataService {
-  private apiUrl = 'https://api.le-systeme-solaire.net/rest/bodies/';
+  private readonly apiUrl = 'https://api.le-systeme-solaire.net/rest/bodies/';
+  private readonly planetsUrl = '/planets.json';
 
-  constructor(private http: HttpClient) {
+  constructor(private readonly http: HttpClient) {
   }
 
   getPlanets(): Observable<BodiesResponse> {
     return this.http.get<BodiesResponse>(this.apiUrl);
   }
+
+  getLocalPlanets(): Observable<BodiesResponse> {
+    return this.http.get<BodiesResponse>(this.planetsUrl).pipe(
+      map((response) => {
+        const filteredPlanets = response.bodies.filter((body) => body.isPlanet);
+
+        return { bodies: filteredPlanets };
+      })
+    );
+  }
+
+  getMoonDetails(moonId: string): Observable<CelestialBody> {
+    return this.http.get<{ bodies: CelestialBody[] }>(this.planetsUrl).pipe(
+      map((response) =>
+        response.bodies.find((body) => body.name === moonId && body.bodyType === 'Moon')
+      ),
+      filter((moon) => moon !== undefined)
+    );
+  }
+
+
 }
