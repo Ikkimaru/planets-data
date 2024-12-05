@@ -1,0 +1,16 @@
+<div class="asteroid-stats">
+  <h1>Asteroids and Their Details</h1>
+  <div *ngFor="let asteroid of asteroids" class="asteroid-card">
+    <h2>{{ asteroid.englishName }} ({{ asteroid.name }})</h2>
+    <ul>
+      <li><strong>Perihelion:</strong> {{ asteroid.perihelion | number }} km</li>
+      <li><strong>Aphelion:</strong> {{ asteroid.aphelion | number }} km</li>
+      <li><strong>Semi-Major Axis:</strong> {{ asteroid.semimajorAxis | number }} km</li>
+      <li><strong>Inclination:</strong> {{ asteroid.inclination }}°</li>
+      <li><strong>Dimension:</strong> {{ asteroid.dimension || 'Unknown' }}</li>
+      <li><strong>Discovered By:</strong> {{ asteroid.discoveredBy || 'Unknown' }}</li>
+      <li><strong>Discovery Date:</strong> {{ asteroid.discoveryDate || 'Unknown' }}</li>
+      <li><strong>Alternative Name:</strong> {{ asteroid.alternativeName || 'None' }}</li>
+    </ul>
+  </div>
+</div>

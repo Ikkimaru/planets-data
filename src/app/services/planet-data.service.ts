@@ -37,6 +37,15 @@ export class PlanetDataService {
     );
   }
 
+  getLocalAsteroids(): Observable<BodiesResponse> {
+    return this.http.get<BodiesResponse>(this.planetsUrl).pipe(
+      map((response) => {
+        const filteredAsteroids = response.bodies.filter((body) => body.bodyType === "Asteroid");
+        return { bodies: filteredAsteroids };
+      })
+    );
+  }
+
   getMoonDetails(moonId: string): Observable<CelestialBody> {
     return this.http.get<{ bodies: CelestialBody[] }>(this.planetsUrl).pipe(
       map((response) =>

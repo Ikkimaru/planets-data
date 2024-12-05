@@ -1,0 +1,21 @@
+.asteroid-stats {
+  padding: 16px;
+}
+.asteroid-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #f9f9f9;
+}
+.asteroid-card h2 {
+  margin-top: 0;
+  color: #333;
+}
+.asteroid-card ul {
+  list-style: none;
+  padding: 0;
+}
+.asteroid-card li {
+  margin-bottom: 8px;
+}
