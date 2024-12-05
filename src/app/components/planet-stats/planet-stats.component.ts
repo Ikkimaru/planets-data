@@ -21,14 +21,25 @@ export class PlanetStatsComponent implements OnInit {
   constructor(private readonly planetDataService: PlanetDataService) {}
 
   ngOnInit(): void {
+    // Fetch planets
     this.planetDataService.getLocalPlanets().subscribe({
       next: (data) => {
-        this.planetsWithDetails = data.bodies
-          .filter((body) => body.isPlanet)
-          .sort((a, b) => a.perihelion - b.perihelion); // Ascending order
+        this.planetsWithDetails = data.bodies.sort((a, b) => a.perihelion - b.perihelion); // Sort by perihelion in ascending order
+
+        // Fetch dwarf planets and add them to the list
+        this.planetDataService.getLocalDwarfPlanets().subscribe({
+          next: (dwarfData) => {
+            this.planetsWithDetails = this.planetsWithDetails.concat(dwarfData.bodies)
+              .sort((a, b) => a.perihelion - b.perihelion); // Sort again after merging
+          },
+          error: (err) => console.error('Error fetching dwarf planet data:', err),
+        });
       },
       error: (err) => console.error('Error fetching planet data:', err),
     });
-
   }
+
+
+
+
 }

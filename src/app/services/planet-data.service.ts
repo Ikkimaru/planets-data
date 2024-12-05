@@ -27,6 +27,16 @@ export class PlanetDataService {
     );
   }
 
+  getLocalDwarfPlanets(): Observable<BodiesResponse> {
+    return this.http.get<BodiesResponse>(this.planetsUrl).pipe(
+      map((response) => {
+        const filteredDwarfPlanets = response.bodies.filter((body) => body.bodyType === "Dwarf Planet");
+
+        return { bodies: filteredDwarfPlanets };
+      })
+    );
+  }
+
   getMoonDetails(moonId: string): Observable<CelestialBody> {
     return this.http.get<{ bodies: CelestialBody[] }>(this.planetsUrl).pipe(
       map((response) =>
